@@ -1,3 +1,11 @@
+
+import java.time.LocalDate;
+import java.time.Year;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.HashMap;
+import java.util.Locale;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +23,12 @@ public class AplikasiPerhitunganHari extends javax.swing.JFrame {
      */
     public AplikasiPerhitunganHari() {
         initComponents();
+        
+        String[] bulan = { "Januari", "Februari", "Maret", "April", "Mei", "Juni", 
+                       "Juli", "Agustus", "September", "Oktober", "November", "Desember" };
+    
+    cmbBulan.setModel(new javax.swing.DefaultComboBoxModel<>(bulan));  // Set model JComboBox dengan nama bulan
+     Locale.setDefault(new Locale("id", "ID"));
     }
 
     /**
@@ -26,21 +40,268 @@ public class AplikasiPerhitunganHari extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        calendar3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        spinnerTahun = new javax.swing.JSpinner();
+        btnHitungJumlahHari = new javax.swing.JButton();
+        calender1 = new com.toedter.calendar.JCalendar();
+        cmbBulan = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        lblHariPertama = new javax.swing.JLabel();
+        lblHariTerakhir = new javax.swing.JLabel();
+        lblKabisat = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        calendar2 = new com.toedter.calendar.JCalendar();
+        jLabel5 = new javax.swing.JLabel();
+        calender3 = new com.toedter.calendar.JCalendar();
+        lblSelisihHari = new javax.swing.JLabel();
+        btnHitungSelisihHari = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        calendar3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jLabel1.setText("Pilih Bulan");
+
+        spinnerTahun.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+
+        btnHitungJumlahHari.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnHitungJumlahHari.setText("Hitung Jumlah Hari");
+        btnHitungJumlahHari.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnHitungJumlahHari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHitungJumlahHariActionPerformed(evt);
+            }
+        });
+
+        cmbBulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbBulan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbBulanActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jLabel2.setText("Masukkan Tahun");
+
+        lblHariPertama.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        lblHariPertama.setText("Hari Pertama   :");
+
+        lblHariTerakhir.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        lblHariTerakhir.setText("Hari Terakhir  :");
+
+        lblKabisat.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        lblKabisat.setText("Tahun Kabisat :");
+
+        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jLabel4.setText("Kalender Awal");
+
+        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jLabel5.setText("Kalender Akhir");
+
+        lblSelisihHari.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        lblSelisihHari.setText("Selisih Hari : ");
+
+        btnHitungSelisihHari.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnHitungSelisihHari.setText("Hitung Selisih Hari");
+        btnHitungSelisihHari.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnHitungSelisihHari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHitungSelisihHariActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout calendar3Layout = new javax.swing.GroupLayout(calendar3);
+        calendar3.setLayout(calendar3Layout);
+        calendar3Layout.setHorizontalGroup(
+            calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(calendar3Layout.createSequentialGroup()
+                .addGroup(calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(calendar3Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2))
+                            .addGap(33, 33, 33)
+                            .addGroup(calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cmbBulan, 0, 200, Short.MAX_VALUE)
+                                .addComponent(spinnerTahun)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, calendar3Layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addGroup(calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnHitungJumlahHari, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(calender1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(calendar3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblHariPertama)
+                            .addComponent(lblHariTerakhir)
+                            .addComponent(lblKabisat))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, calendar3Layout.createSequentialGroup()
+                        .addComponent(lblSelisihHari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnHitungSelisihHari, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4)
+                    .addComponent(calendar2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(calender3, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        calendar3Layout.setVerticalGroup(
+            calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(calendar3Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbBulan, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(calendar3Layout.createSequentialGroup()
+                        .addGroup(calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(spinnerTahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnHitungJumlahHari, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(calender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblHariPertama, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblHariTerakhir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblKabisat))
+                    .addGroup(calendar3Layout.createSequentialGroup()
+                        .addGroup(calendar3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(calendar3Layout.createSequentialGroup()
+                                .addComponent(calendar2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblSelisihHari)
+                                .addGap(5, 5, 5))
+                            .addComponent(btnHitungSelisihHari, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(calender3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setText("Aplikasi Perhitungan Hari");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(181, 181, 181))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(calendar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(382, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(calendar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 88, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmbBulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBulanActionPerformed
+      // Ambil bulan yang dipilih
+    int bulan = cmbBulan.getSelectedIndex() + 1;  // Bulan mulai dari index 0, jadi tambahkan 1
+    int tahun = (Integer) spinnerTahun.getValue();  // Ambil tahun dari spinner
+
+    // Ubah bulan di kalender sesuai bulan yang dipilih
+    LocalDate tanggal = LocalDate.of(tahun, bulan, 1);  // Buat LocalDate untuk tanggal 1 bulan tersebut
+    calender1.setDate(java.sql.Date.valueOf(tanggal));  // Set tanggal ke calendar1 (bulan dan tahun)
+
+    // Perbarui bulan pada calendar2 dan calendar3
+    calendar2.setDate(java.sql.Date.valueOf(tanggal));  // Set tanggal yang sama pada calendar2
+    calender3.setDate(java.sql.Date.valueOf(tanggal));  // Set tanggal yang sama pada calendar3
+
+    // Jika diperlukan, perbarui tampilan hari pertama dan terakhir
+    LocalDate tanggalAwal = LocalDate.of(tahun, bulan, 1);
+    LocalDate tanggalAkhir = tanggalAwal.withDayOfMonth(tanggalAwal.lengthOfMonth());
+
+    lblHariPertama.setText("Hari Pertama: " + tanggalAwal.getDayOfWeek().toString());
+    lblHariTerakhir.setText("Hari Terakhir: " + tanggalAkhir.getDayOfWeek().toString());    // TODO add your handling code here:
+    }//GEN-LAST:event_cmbBulanActionPerformed
+
+    private void btnHitungJumlahHariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitungJumlahHariActionPerformed
+    int bulan = cmbBulan.getSelectedIndex() + 1;  // Mendapatkan bulan yang dipilih
+    int tahun = (int) spinnerTahun.getValue();          // Mendapatkan tahun dari JSpinner
+
+    // Mendapatkan tanggal pertama bulan yang dipilih
+    LocalDate tanggalAwal = LocalDate.of(tahun, bulan, 1);  
+    LocalDate tanggalAkhir = tanggalAwal.withDayOfMonth(tanggalAwal.lengthOfMonth());  // Tanggal terakhir bulan
+
+    // Hitung jumlah hari dalam bulan
+    int jumlahHari = tanggalAwal.lengthOfMonth();  
+
+    // Format nama hari dalam Bahasa Indonesia
+    HashMap<String, String> hariMap = new HashMap<>();
+    hariMap.put("MONDAY", "Senin");
+    hariMap.put("TUESDAY", "Selasa");
+    hariMap.put("WEDNESDAY", "Rabu");
+    hariMap.put("THURSDAY", "Kamis");
+    hariMap.put("FRIDAY", "Jumat");
+    hariMap.put("SATURDAY", "Sabtu");
+    hariMap.put("SUNDAY", "Minggu");
+
+    String hariPertama = hariMap.get(tanggalAwal.getDayOfWeek().toString());
+    String hariTerakhir = hariMap.get(tanggalAkhir.getDayOfWeek().toString());
+
+    // Tampilkan hasil
+    lblHariPertama.setText("Hari Pertama: " + hariPertama);
+    lblHariTerakhir.setText("Hari Terakhir: " + hariTerakhir);
+    //lblSelisihHari.setText("Jumlah Hari: " + jumlahHari);
+    
+    boolean isKabisat = Year.of(tahun).isLeap();
+    lblKabisat.setText("Tahun Kabisat: " + (isKabisat ? "Ya" : "Tidak"));        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHitungJumlahHariActionPerformed
+
+    private void btnHitungSelisihHariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitungSelisihHariActionPerformed
+    LocalDate tanggal1 = calendar2.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    LocalDate tanggal2 = calender3.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+    // Menghitung selisih hari antara tanggal1 dan tanggal2
+    long selisihHari = ChronoUnit.DAYS.between(tanggal1, tanggal2);
+
+    // Menampilkan selisih hari
+    lblSelisihHari.setText("Selisih Hari: " + selisihHari);    // TODO add your handling code here:
+    }//GEN-LAST:event_btnHitungSelisihHariActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +339,23 @@ public class AplikasiPerhitunganHari extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHitungJumlahHari;
+    private javax.swing.JButton btnHitungSelisihHari;
+    private com.toedter.calendar.JCalendar calendar2;
+    private javax.swing.JPanel calendar3;
+    private com.toedter.calendar.JCalendar calender1;
+    private com.toedter.calendar.JCalendar calender3;
+    private javax.swing.JComboBox<String> cmbBulan;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblHariPertama;
+    private javax.swing.JLabel lblHariTerakhir;
+    private javax.swing.JLabel lblKabisat;
+    private javax.swing.JLabel lblSelisihHari;
+    private javax.swing.JSpinner spinnerTahun;
     // End of variables declaration//GEN-END:variables
 }
